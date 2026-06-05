@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background: #F7F8F9;
+}
+
+.auth-screen {
+  display: flex;
+  flex-direction: column;
+  background: #F7F8F9;
+  padding: clamp(24px, 6vw, 36px) clamp(20px, 6vw, 28px) 32px;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.auth-header {
+  margin-bottom: 28px;
+}
+
+.auth-title {
+  font-size: clamp(22px, 6vw, 28px);
+  font-weight: 700;
+  color: #1D2226;
+  line-height: 1.25;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+/* Floating label field */
+.field-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label {
+  position: absolute;
+  top: -9px;
+  left: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6C25FF;
+  background: #F7F8F9;
+  padding: 0 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.field-label.required::after {
+  content: '*';
+  color: #6C25FF;
+  margin-left: 2px;
+}
+
+.field-input {
+  width: 100%;
+  border: 1.5px solid #CBCBCB;
+  border-radius: 6px;
+  padding: 14px 14px;
+  font-size: 14px;
+  font-family: 'Rubik', sans-serif;
+  color: #1D2226;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field-input:focus {
+  border-color: #6C25FF;
+}
+
+.field-input::placeholder {
+  color: #919191;
+}
+
+.field-input.has-error {
+  border-color: #DD4A3D;
+}
+
+/* Floating label behavior */
+.float-field {
+  position: relative;
+}
+
+.float-field .float-label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-weight: 400;
+  color: #919191;
+  background: transparent;
+  padding: 0 4px;
+  pointer-events: none;
+  transition: top 0.18s ease, transform 0.18s ease, font-size 0.18s ease, color 0.18s ease, background 0.18s ease;
+  z-index: 1;
+}
+
+.float-field input:focus ~ .float-label,
+.float-field input:not(:placeholder-shown) ~ .float-label,
+.float-field input.has-error ~ .float-label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #6C25FF;
+  background: #F7F8F9;
+  font-weight: 500;
+}
+
+.float-field input.has-error ~ .float-label {
+  color: #DD4A3D;
+}
+
+.float-field input {
+  width: 100%;
+  border: 1.5px solid #CBCBCB;
+  border-radius: 6px;
+  padding: 15px 14px 13px;
+  font-size: 14px;
+  font-family: 'Rubik', sans-serif;
+  color: #1D2226;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.float-field input::placeholder {
+  color: transparent;
+}
+
+.float-field input:focus {
+  border-color: #6C25FF;
+}
+
+.float-field input.has-error {
+  border-color: #DD4A3D;
+}
+
+/* Password eye button */
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input {
+  padding-right: 44px;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+/* Error */
+.field-error {
+  font-size: 12px;
+  color: #DD4A3D;
+  margin-top: 5px;
+  padding-left: 2px;
+}
+
+.pwd-hints {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pwd-hints li {
+  font-size: 11.5px;
+  color: #DD4A3D;
+  padding-left: 16px;
+  position: relative;
+}
+
+.pwd-hints li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  font-size: 10px;
+}
+
+/* Radio */
+.agency-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #1D2226;
+  margin-bottom: 8px;
+}
+
+.agency-label span {
+  color: #6C25FF;
+}
+
+.radio-group {
+  display: flex;
+  gap: 28px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #1D2226;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.radio-option input[type='radio'] {
+  display: none;
+}
+
+.radio-custom {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #CBCBCB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.radio-option input[type='radio']:checked + .radio-custom {
+  border-color: #6C25FF;
+  background: #6C25FF;
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+/* Submit */
+.submit-area {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: not-allowed;
+  border: none;
+  font-family: 'Rubik', sans-serif;
+  background: #CBCBCB;
+  color: #FFFFFF;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.submit-btn.active {
+  background: #6C25FF;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.submit-btn.active:hover {
+  background: #642AF5;
+  box-shadow: 0 4px 16px rgba(108, 37, 255, 0.35);
+}
+
+.submit-btn.active:active {
+  transform: scale(0.98);
+  background: #5a1fe0;
+  box-shadow: none;
+}
